@@ -1,3 +1,28 @@
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 15vw 15vw;  /* set column sizes here */
+  grid-template-rows: auto auto;  /* we want two rows */
+  grid-gap: 0.5vw;  /* how far between cells? */
+  grid-auto-flow: column    /* fill in by column, not row */
+}
+
+.time-element {
+  border: 1px solid #000;
+  display: block;
+  text-align: center;
+  font-size: 1.5vw;
+  background-color: #0b1b6e;
+  color: white;
+}
+
+.time {
+  margin: 1vw 0 1vw
+}
+
 .App {
   text-align: center;
 }
@@ -27,30 +52,6 @@
 .App-link {
   color: #61dafb;
 }
-
-.main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    display: grid;
-    grid-template-columns: 15vw 15vw; /* set column sizes here */
-    grid-template-rows: auto auto; /* we want two rows */
-    grid-gap: 1vw; /* how far between cells? */
-    grid-auto-flow: column /* fill in by column, not row */       
-}
-.time-element {
-    border: 1px solid #000;
-    display: block;
-    text-align: center;
-    font-size: 1.5vw;
-    background-color: #0b1b6e;
-    color: white
-}
-.time {
-  margin: 1vw 0 1vw
-}
-
 
 @keyframes App-logo-spin {
   from {
