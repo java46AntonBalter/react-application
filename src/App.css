@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: 15vw 15vw;  /* set column sizes here */
+  grid-template-columns: 20vw 20vw;  /* set column sizes here */
   grid-template-rows: auto auto;  /* we want two rows */
   grid-gap: 0.5vw;  /* how far between cells? */
   grid-auto-flow: column    /* fill in by column, not row */
