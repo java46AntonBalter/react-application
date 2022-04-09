@@ -7,7 +7,7 @@
   outline: 0;
   cursor: pointer;
   border: 2px solid #000;
-  border-radius: 3px;
+  border-radius: 15px;
   color: rgb(255, 218, 87);
   background: #000;
   font-size: 20px;
@@ -22,6 +22,14 @@
 .button:hover {
   color: #000;
   background: rgb(255, 218, 87);
+}
+.colorInput {
+  margin-top: 1vh;
+}
+input.colorInput, textarea {
+
+  background: rgb(255, 218, 87);
+
 }
 
 .App {
