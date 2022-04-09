@@ -7,7 +7,7 @@
   outline: 0;
   cursor: pointer;
   border: 2px solid #000;
-  border-radius: 15px;
+  
   color: rgb(255, 218, 87);
   background: #000;
   font-size: 20px;
@@ -15,13 +15,14 @@
   line-height: 28px;
   padding: 12px 20px;
   text-align:center;
-  transition-duration: .15s;
+  transition-duration: .55s;
   transition-property: all;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 .button:hover {
   color: #000;
   background: rgb(255, 218, 87);
+  border-radius: 15px;
 }
 .colorInput {
   margin-top: 1vh;
