@@ -1,73 +1,8 @@
-.main {
-  background: rgb(255, 218, 87);
-  height: 100vh
-}
-.button {
-  display: inline-block;
-  outline: 0;
-  cursor: pointer;
-  border: 2px solid #000;
-  
-  color: rgb(255, 218, 87);
-  background: #000;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 28px;
-  padding: 12px 20px;
-  text-align:center;
-  transition-duration: .55s;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-}
-.button:hover {
-  color: #000;
-  background: rgb(255, 218, 87);
-  border-radius: 15px;
-}
-.colorInput {
-  margin-top: 1vh;
-}
-input.colorInput, textarea {
-
-  background: rgb(255, 218, 87);
-
-}
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+html, body {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  border: 0 0 0 0;
+  padding: 0 0 0 0;
 }
