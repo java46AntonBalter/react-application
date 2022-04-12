@@ -3,11 +3,11 @@ import Row from './Row'
 type Props = {
     numbers: number[][]
 }
-const Matrix: React.FC<Props> = ({numbers}) => {
-    
-    return <div style={{display: "flex", flexDirection: "column"}}>
+const Matrix: React.FC<Props> = ({ numbers }) => {
+
+    return <div style={{ display: "flex", flexDirection: "column" }}>
         {getRows(numbers)}
-    </div> 
+    </div>
 }
 
 function getRows(numbers: number[][]): React.ReactNode {

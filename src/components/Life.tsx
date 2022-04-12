@@ -6,7 +6,7 @@ type Props = {
     dimension: number;
     ticInterval: number
 }
-const Life: React.FC<Props> = ({dimension, ticInterval}) => {
+const Life: React.FC<Props> = ({ dimension, ticInterval }) => {
     const lifeMatrix = React.useRef<LifeMatrix>(new LifeMatrix(getRandomMatrix(dimension, dimension, 0, 1)));
     const [numbers, setNumbers] = React.useState<number[][]>(lifeMatrix.current.numbers)
     function tic() {
@@ -16,6 +16,9 @@ const Life: React.FC<Props> = ({dimension, ticInterval}) => {
         const intervalId = setInterval(tic, ticInterval);
         return () => clearInterval(intervalId);
     }, [ticInterval])
-    return <div style={{display: "flex", justifyContent: "center", alignItems: "center", position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}><Matrix numbers={numbers}></Matrix></div>
+    return <div style={{
+        display: "flex", justifyContent: "center", alignItems: "center", position: "fixed",
+        top: "50%", left: "50%", transform: "translate(-50%, -50%)"
+    }}><Matrix numbers={numbers}></Matrix></div>
 }
 export default Life;

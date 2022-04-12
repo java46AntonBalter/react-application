@@ -1,14 +1,14 @@
 import React from 'react';
 import Life from './components/Life';
 import lifeGameConfig from './config/lifeGameConfig.json';
-import './App.css' 
+import './App.css'
 
 
 function App() {
 
-  return  <div>
+  return <div>
     <Life dimension={lifeGameConfig.dimension} ticInterval={lifeGameConfig.tic} ></Life>
-    </div>
+  </div>
 }
 
 export default App;
