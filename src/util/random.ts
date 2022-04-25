@@ -1,10 +1,16 @@
-export function getRandomNumber(min: number, max:number):number {
-    if (min > max){
+export function getRandomNumber(min: number, max: number): number {
+    if (min > max) {
         [min, max] = [max, min];
     }
-    return min + Math.round(Math.random() * (max - min))
+    return min + Math.round(Math.random() * (max - min));
 }
 export function getRandomMatrix(columns: number, rows: number, min: number, max: number): number[][] {
-    const res: number[][] = new Array(rows).fill(0).map(row => new Array(columns).fill(1).map(column => getRandomNumber(min, max)));
+    const res: number[][] = new Array<number[]>();
+    for(let i = 0; i < rows; i++) {
+        res[i] = [];
+        for(let j = 0; j < columns; j++) {
+            res[i][j] = getRandomNumber(min, max);
+        }
+    }
     return res;
 }

@@ -1,50 +1,39 @@
-import lifeGameConfig from "../config/lifeGameConfig.json"
-
+function fromAlive(nLives: number): number {
+    return +(nLives === 2 || nLives === 3);//to 1 only if the condition true
+}
+function fromDead(nLives: number): number {
+    return +(nLives === 3);//to 1 only if the condition true
+}
 export default class LifeMatrix {
     constructor(private _numbers: number[][]) {
-
     }
     get numbers() {
-        return this._numbers;
+        return this._numbers
     }
     nextStep(): number[][] {
-        //TODO write implementation of the life game algorythm
-        //reminder: first create copy for updating cells based on the previous matrix
-        let originalState: number[][] = this._numbers;
-        const nextState: number[][] = originalState.map((r, rowIndex) => {
-            const newRow: number[] = [];
-            r.forEach((cell, columnIndex) => {
-                let sum: number = this.neighboursSum(originalState, columnIndex, rowIndex);
+        const numbersCopy: number[][]= new Array<number[]>();
+        for (let i = 0; i < this.numbers.length; i++) {
+            numbersCopy[i] = [];
+            for (let j = 0; j < this._numbers[i].length; j++) {
+                numbersCopy[i][j] = this.getNumber(i, j);
+            }
+        }
+        this._numbers = numbersCopy;
+        return this._numbers;
+    }
+    private getNumber(i: number, j: number): number {
+        const neighbours: (number|undefined)[] =
+            [...this.rowNeighbours(i-1,j),...this.rowNeighbours(i+1,j),
+                this._numbers[i][j-1], this._numbers[i][j+1]];
+        const nLives = neighbours.reduce((res: number, cur) => {
+            return cur ? res + 1 : res;
+        }, 0)
 
-                if (cell === 1 && sum < 2) {
-                    cell = 0;
-                } else if (cell === 1 && sum > 1 && sum < 4) {
-                    cell = 1;
-                } else if (cell === 1 && sum > 3) {
-                    cell = 0;
-                } else if (cell === 0 && sum === 3) {
-                    cell = 1;
-                }
-
-
-                newRow.push(cell);
-            })
-            return newRow;
-        });
-        this._numbers = nextState;
-        return nextState;
+        return this._numbers[i][j] ? fromAlive(nLives) : fromDead(nLives);
+    }
+    private rowNeighbours(i: number, j: number):(number|undefined)[] {
+       return this.numbers[i]===undefined ? [undefined] : [this.numbers[i][j],
+           this.numbers[i][j-1], this.numbers[i][j+1] ];
     }
 
-    private neighboursSum(originalState: number[][], columnIndex: number, rowIndex: number) {
-        let sum: number = 0;
-        sum = (columnIndex > 0) ? sum + originalState[rowIndex][columnIndex - 1] : sum;
-        sum = (columnIndex > 0) && (rowIndex > 0) ? sum + originalState[rowIndex - 1][columnIndex - 1] : sum;
-        sum = (rowIndex > 0) ? sum + originalState[rowIndex - 1][columnIndex] : sum;
-        sum = (rowIndex > 0) && (columnIndex < (lifeGameConfig.dimension - 1)) ? sum + originalState[rowIndex - 1][columnIndex + 1] : sum;
-        sum = (columnIndex < (lifeGameConfig.dimension - 1)) ? sum + originalState[rowIndex][columnIndex + 1] : sum;
-        sum = (rowIndex < (lifeGameConfig.dimension - 1)) && (columnIndex < (lifeGameConfig.dimension - 1)) ? sum + originalState[rowIndex + 1][columnIndex + 1] : sum;
-        sum = (rowIndex < (lifeGameConfig.dimension - 1)) ? sum + originalState[rowIndex + 1][columnIndex] : sum;
-        sum = (rowIndex < (lifeGameConfig.dimension - 1)) && (columnIndex > 0) ? sum + originalState[rowIndex + 1][columnIndex - 1] : sum;
-        return sum;
-    }
 }

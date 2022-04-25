@@ -1,14 +1,17 @@
 import React from 'react';
 import Life from './components/Life';
-import lifeGameConfig from './config/lifeGameConfig.json';
-import './App.css'
-
+import lifeGameConfig from './config/lifeGameConfig.json'
 
 function App() {
 
-  return <div>
+
+  return  <div>
     <Life dimension={lifeGameConfig.dimension} ticInterval={lifeGameConfig.tic} ></Life>
-  </div>
+    <br></br> <br></br> <br></br>
+    <Life dimension={lifeGameConfig.dimension} ticInterval={lifeGameConfig.tic} ></Life>
+
+    
+    </div>
 }
 
 export default App;
